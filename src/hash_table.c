@@ -6,6 +6,7 @@
 // - Serialization
 // - Iteration
 // - Maybe switching to tree instead of linked list
+// - Thread safety
 
 unsigned int default_hasher(const generic_t to_hash) {
     const unsigned long int addr = (unsigned long int) to_hash;

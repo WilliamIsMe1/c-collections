@@ -3,6 +3,10 @@
 
 #include "types.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct hash_bucket_t;
 struct hash_table_t;
 typedef PTR(struct hash_table_t) hash_table_t;
@@ -34,5 +38,9 @@ int rehash_hash_table(hash_table_t table, unsigned int new_modulus);
 // Delete
 int remove_value_from_hash_table(hash_table_t src, generic_t key, PTR(struct hash_table_entry_t) dest, bool return_value);
 int free_hash_table(PTR(hash_table_t) table);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //COLLECTIONS_HASH_TABLE_H

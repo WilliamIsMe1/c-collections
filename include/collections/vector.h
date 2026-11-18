@@ -3,6 +3,10 @@
 
 #include "types.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct vector_t;
 typedef PTR(struct vector_t) vector_t;
 
@@ -34,5 +38,9 @@ int shrink_vector(vector_t dest, size_t new_maximum_capacity);
 // Delete
 int remove_from_vector(vector_t src, size_t index, ARR(generic_t) dest, bool return_value);
 int free_vector(PTR(vector_t) table);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //COLLECTIONS_VECTOR_H

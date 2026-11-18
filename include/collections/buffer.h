@@ -3,7 +3,16 @@
 
 #include "types.h"
 
+#ifdef __cplusplus
+    #define EXTERN_C_BEGIN extern "C" {
+    #define EXTERN_C_END }
+#else
+    #define EXTERN_C_BEGIN
+    #define EXTERN_C_END
+#endif
+
 #define GENERIC_BUFFER_DECLARATION(prefix, type) \
+EXTERN_C_BEGIN \
 struct prefix##buffer_t; \
 typedef PTR(struct prefix##buffer_t) prefix##buffer_t; \
 int create_##prefix##buffer(PTR(prefix##buffer_t) dest, size_t initial_capacity); \
@@ -20,7 +29,8 @@ int clear_##prefix##buffer(prefix##buffer_t src); \
 int clear_##prefix##buffer_ex(prefix##buffer_t src, type value); \
 int shrink_##prefix##buffer(prefix##buffer_t src, int new_maximum_capacity); \
 int reserve_##prefix##buffer(prefix##buffer_t src, int new_minimum_capacity); \
-int free_##prefix##buffer(PTR(prefix##buffer_t) src);
+int free_##prefix##buffer(PTR(prefix##buffer_t) src); \
+EXTERN_C_END
 
 #define GENERIC_BUFFER_DEFINITION(prefix, type, zero_value) \
     struct prefix##buffer_t { \

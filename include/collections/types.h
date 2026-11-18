@@ -1,6 +1,10 @@
 #ifndef COLLECTIONS_TYPES_H
 #define COLLECTIONS_TYPES_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdlib.h>
 
 typedef enum {
@@ -47,5 +51,9 @@ typedef int (*comparator_ft)(generic_t, generic_t);
 typedef int (*copier_ft)(generic_t,struct allocator_t,PTR(generic_t) return_val);
 
 int default_comparator(generic_t a, generic_t b);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

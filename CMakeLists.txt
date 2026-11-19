@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 4.3)
-project(include/collections C)
+project(collections C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_library(collections tests/main.c
+add_library(collections
         src/types.c
         src/hash_table.c
         src/vector.c

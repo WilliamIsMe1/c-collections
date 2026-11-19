@@ -26,6 +26,7 @@ int create_hash_table_pro_ex(PTR(hash_table_t) new_table, unsigned int modulus, 
 int create_hash_table(PTR(hash_table_t) new_table, unsigned int modulus);
 int create_hash_table_pro(PTR(hash_table_t) new_table, unsigned int modulus, struct allocator_t allocator);
 int create_hash_table_ex(PTR(hash_table_t) new_table, unsigned int modulus, hasher_ft hasher, comparator_ft key_comparator, copier_ft key_copier, copier_ft value_copier);
+int copy_hash_table(hash_table_t src, PTR(hash_table_t) dest);
 
 // Read
 int get_value_from_hash_table(hash_table_t src, generic_t key, PTR(generic_t) dest);

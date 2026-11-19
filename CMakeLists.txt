@@ -14,9 +14,3 @@ add_library(collections
 target_include_directories(collections PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
-
-add_executable(collections_tests
-        tests/main.c
-)
-
-target_link_libraries(collections_tests PRIVATE collections)

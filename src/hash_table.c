@@ -205,10 +205,10 @@ int put_value_in_hash_table(hash_table_t dest, generic_t key, generic_t value, b
         }
         if (dest->comparator(placement_point->key, key) == 0) {
             do_record = false;
-            if (placement_point->owns_key && placement_point->key != nullptr) {
+            if (placement_point->owns_key && placement_point->key != nullptr && placement_point->key != key) { // Check that the key isn't the same, so we don't use-after-free
                 dest->allocator.free(placement_point->key);
             }
-            if (placement_point->owns_value && placement_point->value != nullptr) {
+            if (placement_point->owns_value && placement_point->value != nullptr && placement_point->value != value) {
                 dest->allocator.free(placement_point->value);
             }
             break;
